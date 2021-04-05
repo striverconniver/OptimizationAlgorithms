@@ -1,2 +1,2 @@
 # OptimizationAlgorithms
-Resources for "Optimization Algorithms And Their Mathematics"
+Resources for _Optimization Algorithms And Their Mathematics_
