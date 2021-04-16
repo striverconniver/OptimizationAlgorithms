@@ -1,5 +1,5 @@
 # OptimizationAlgorithms
-Resources for _Optimization Problems And Their Algorithsm And Mathematics_
+Resources for _Optimization Problems And Their Algorithms And Mathematics_
 
 [Lecture 1 youtube playlist](https://www.youtube.com/playlist?list=PLbZhQRxUimh57G5JtnDA6p9-MYmbHMeP9)
 
