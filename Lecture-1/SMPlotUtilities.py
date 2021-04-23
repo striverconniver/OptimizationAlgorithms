@@ -59,7 +59,7 @@ mpC2 = {"rng" : np.arange(0.9, 3.1, 0.01),
         "sptxt" : "(1, 0) minimizes $\mathbf{f}$ in the feasible region"
         }
 
-pCol = {"Y" : "yellow", "DB" : "DodgerBlue", "R" : "Red", "Y" : "Yellow"}
+pCol = {"Y" : "yellow", "DB" : "DodgerBlue", "R" : "Red", "Y" : "Yellow", "C" : "Chartreuse" }
 
 ###############################################################################
 # Square function details
@@ -263,6 +263,58 @@ def BivariateNormalCompact(d):
     # This list picks a few values of the pdf to feed into the contour plots
     ###########################################################################
     levellist = [fv(1,1,0,2), N/4, fv(2.25, 1, 2, 2), N/1.1, N/1.01, N]
+    ###########################################################################
+    return x1, x2, f, levellist
+    ###########################################################################
+
+mp2RndBnds = {"xl" : -3, "xr" : 3, "yb" : -0.8, "yt" : 5.2}
+mp2Bnds =  {"xl" : mp2RndBnds["xl"] - 0.1,
+           "xr" : mp2RndBnds["xr"] + 0.1,
+           "yb" : mp2RndBnds["yb"] - 0.1,
+           "yt" : mp2RndBnds["yt"] + 0.1}
+
+mp2Pts = {"x1" : np.arange(-2.25, 3, 0.01),
+         "x2" : np.arange(-0.5, 3.25, 0.01)}
+
+mp2C1 = {"rng" : np.arange(-2.2, 2.2, 0.01),
+        "ineq" : "$\mathbf{c_1: x_1^2 - x_2\leq 0}$",
+        "tattr" : {"color" : "orange", "fontweight" : "bold", "fontsize" : "large"},
+        "attr" : {"color" : "orange", "lw" : 2, "zorder" : 5},
+        "txtx" : -2.1,
+        "txty" : 0.5
+        }
+mp2C2 = {"rng" : np.arange(-2.2, 2.2, 0.01),
+        "cap" : "Figure 1: $f(x_1, x_2) = (x_1 - 2)^2 + (x_2 - 1)^2$ - Level set curves,  with $c_1$, $c_2$ added",
+        "ineq" : "$\mathbf{c_2: x_1 + x_2 \leq 2}$",
+        "tattr" : {"color" : "red", "fontweight" : "bold", "fontsize" : "large"},
+        "attr" : {"color" : "red", "lw" : 2, "zorder" : 10},
+        "txtx" : -1.4,
+        "txty" : 3.5,
+        "arrowsx" : 0.75,
+        "arrowsy" : 3.5,
+        "arrowdx" : -.65,
+        "arrowdy" : -1.5,
+        "fsx" : 0.25,
+        "fsy" : 3.65,
+        "spx" : 1.0,
+        "spy" : 1.0,
+         "sptx" : -2.0,
+        "spty" : -0.5,
+        "sptxt" : "(1, 1) minimizes $\mathbf{f}$ in the feasible region"
+        }
+mp2CapLoc = {"hloc" : 0,  "vloc" : -2}
+
+def TranslatedCircleCompact(d, xt, yt):
+    ###########################################################################
+    x1, x2 = np.meshgrid(d["x1"], d["x2"])
+    ###########################################################################
+    # Initialize the PDF
+    ###########################################################################
+    f = (x1 - xt)**2 + (x2 - yt)**2
+    ###########################################################################
+    # This list picks a few values of the pdf to feed into the contour plots
+    ###########################################################################
+    levellist = [0, 0.25, 0.5, 1, 2]
     ###########################################################################
     return x1, x2, f, levellist
     ###########################################################################    
